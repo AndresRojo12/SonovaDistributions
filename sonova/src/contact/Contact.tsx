@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ToastContainer , Zoom, toast } from "react-toastify";
 import {
   FaInstagram,
   FaTiktok,
@@ -176,7 +177,7 @@ export default function Contact() {
     };
 
     if (!payload.name || !payload.email || !payload.message) {
-      setStatus("Por favor completa los campos obligatorios");
+      toast.error("Por favor completa los campos obligatorios");
       return;
     }
 
@@ -189,7 +190,7 @@ export default function Contact() {
 
       if (!res.ok) throw new Error("Error enviando formulario");
 
-      setStatus("Mensaje enviado correctamente ✅");
+      toast.success("Mensaje enviado correctamente");
 
       setForm({
         payload: {
@@ -206,7 +207,7 @@ export default function Contact() {
       });
     } catch (err) {
       console.error(err);
-      setStatus("Error enviando el mensaje ❌");
+      toast.error("Error enviando el mensaje ");
     }
   };
 
@@ -542,6 +543,9 @@ export default function Contact() {
           )}
         </div>
       </div>
+      <ToastContainer
+      position="bottom-right"
+      />
     </>
   );
 }
