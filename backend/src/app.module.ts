@@ -7,7 +7,7 @@ import { ContactModule } from './contact/contact.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: process.env.NODE_ENV || '/backend/.env',
+      envFilePath: process.env.NODE_ENV || '.env',
       isGlobal: true,
     }),
     ContactModule,

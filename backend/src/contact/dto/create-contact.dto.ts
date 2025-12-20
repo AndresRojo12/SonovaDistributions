@@ -1,25 +1,45 @@
-import { IsEmail, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import {
+  IsArray,
+  IsEmail,
+  IsNotEmpty,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
+import { Type } from 'class-transformer';
+
+class LinkItemDto {
+  @IsString()
+  platform: string;
+
+  @IsString()
+  url: string;
+}
 
 export class CreateContactDto {
   @IsString()
   @IsNotEmpty()
-  readonly name: string;
-  readonly lastName: string;
+  name: string;
+
+  @IsString()
+  lastName: string;
 
   @IsEmail()
+  email: string;
+
+  @IsString({ each: true })
+  category: string;
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => LinkItemDto)
+  musicPlatform: LinkItemDto[];
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => LinkItemDto)
+  yourSocials: LinkItemDto[];
+
+  @IsString()
   @IsNotEmpty()
-  readonly email: string;
-
-  @IsString()
-  readonly category: string[];
-
-  @IsString()
-  readonly musicPlatform: string[];
-  
-  @IsString()
-  readonly yourSocials: string[];
-
-  @IsString()
-  @IsNotEmpty()
-  readonly message: string;
+  message: string;
 }
