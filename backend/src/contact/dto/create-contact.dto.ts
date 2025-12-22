@@ -3,6 +3,7 @@ import {
   IsEmail,
   IsNotEmpty,
   IsString,
+  IsUrl,
   ValidateNested,
 } from 'class-validator';
 import { Type } from 'class-transformer';
@@ -32,11 +33,13 @@ export class CreateContactDto {
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => LinkItemDto)
+  @IsUrl()
   musicPlatform: LinkItemDto[];
 
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => LinkItemDto)
+  @IsUrl()
   yourSocials: LinkItemDto[];
 
   @IsString()
