@@ -23,8 +23,13 @@ function App() {
                 <header className="w-full px-10 py-6 fixed top-0 left-0 bg-violet-100 backdrop-blur-md border-b border-gray-200 z-50">
                   <div className="max-w-6xl mx-auto flex items-center justify-between">
                     {/* LOGO */}
-                    <h1 className="text-2xl font-bold">MODURA</h1>
-
+                    <div className="flex items-center gap-3 text-8xl font-bold">
+                      <img
+                        src="/MODURA Copia.png"
+                        alt="Modura Logo"
+                        className="h-[1em] w-auto"
+                      />
+                    </div>
                     {/* MENU */}
                     <nav className="flex space-x-8 text-[15px] font-medium text-gray-900">
                       <a href="#servicio" className="hover:text-black">
