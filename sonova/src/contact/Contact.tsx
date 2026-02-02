@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ToastContainer, Zoom, toast } from "react-toastify";
+import { ToastContainer,toast } from "react-toastify";
 import {
   FaInstagram,
   FaTiktok,
@@ -147,7 +147,7 @@ export default function Contact() {
     });
   };
 
-  const [status, setStatus] = useState("");
+  //const [status, setStatus] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<
