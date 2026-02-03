@@ -3,11 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Contact from "./contact/Contact.tsx";
 import {
-  FaInstagram,
-  FaTiktok,
   FaYoutube,
-  FaFacebook,
-  FaXTwitter,
   FaSpotify,
   FaSoundcloud,
   FaDeezer,
@@ -180,10 +176,10 @@ function App() {
                   </h2>
 
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 shadow-indigo-500/50">
-                    {t("benefits.cards", { returnObjects: true }).map(
+                    {(t("benefits.cards", { returnObjects: true }) as Array<{ title: string; text: string }>).map(
                       (card, i) => (
                         <div
-                          key={i}
+                          key={`benefit-${i}`}
                           className="bg-gray-50 border border-gray-200 p-6 rounded-lg shadow-lg shadow-indigo-400/50"
                         >
                           <h3 className="text-lg font-bold">{card.title}</h3>
@@ -196,7 +192,7 @@ function App() {
 
                 {/* ANALISIS Y REPORTES */}
                 <section
-                  id="beneficios"
+                  id="analytics"
                   className="max-w-6xl mx-auto px-6 py-10"
                 >
                   <h2 className="text-3xl font-semibold">
@@ -208,10 +204,10 @@ function App() {
 
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 shadow-indigo-500/50">
                     {/* CARD */}
-                    {t("analytics.cards", { returnObjects: true }).map(
+                    {(t("analytics.cards", { returnObjects: true }) as Array<{ title: string; text: string }>).map(
                       (card, i) => (
                         <div
-                          key={i}
+                          key={`analytics-${i}`}
                           className="bg-gray-50 border border-gray-200 p-6 rounded-lg shadow-lg shadow-indigo-400/50"
                         >
                           <h3 className="text-lg font-bold">{card.title}</h3>
@@ -224,7 +220,7 @@ function App() {
 
                 {/* PAGOS Y REGALIAS */}
                 <section
-                  id="beneficios"
+                  id="royalties"
                   className="max-w-6xl mx-auto px-6 py-10"
                 >
                   <h2 className="text-3xl font-semibold">
@@ -233,10 +229,10 @@ function App() {
 
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 shadow-indigo-500/50">
                     {/* CARD */}
-                    {t("royalties.cards", { returnObjects: true }).map(
+                    {(t("royalties.cards", { returnObjects: true }) as Array<{ title: string; text: string }>).map(
                       (card, i) => (
                         <div
-                          key={i}
+                          key={`royalty-${i}`}
                           className="bg-gray-50 border border-gray-200 p-6 rounded-lg shadow-lg shadow-indigo-400/50"
                         >
                           <h3 className="text-lg font-bold">{card.title}</h3>
